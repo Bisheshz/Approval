@@ -1,44 +1,19 @@
-import platform
 import requests
-import hashlib
-import sys
-bis=('https')
-he=('github')
-sh=('LordBishesh')
-love=('mbasic')
-def get_device_model():
-    return platform.uname().machine
 
-def generate_device_code(device_model):
-    # Use a combination of device model and a secret key to generate a unique code
-    secret_key = "your_secret_key"
-    code = hashlib.sha256(f"{device_model}{secret_key}".encode()).hexdigest()
-    return code
+def ipkamu():
+    a = requests.get("http://ip-api.com/json/", headers={
+                     "Referer": "http://ip-api.com/", "Content-Type": "application/json; charset=utf-8", "User-Agent": "Mozilla/5.0 (Linux; Android 10; Mi 9T Pro Build/QKQ1.190825.002; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/88.0.4324.181 Mobile Safari/537.36[FBAN/EMA;FBLC/it_IT;FBAV/239.0.0.10.109;]"}).json()
 
-def check_code_on_links(code, links):
-    for link in links:
-        response = requests.get(link)
-        if code in response.text:
-            return True
-    return False
+    ip = a.get("query", " ")
+    bn = a.get("status", " ")
+    ng = a.get("country", " ")
+    pr = a.get("regionName", " ")
+    sp = a.get("isp", " ")
 
-def main():
-    device_model = get_device_model()
-    device_code = generate_device_code(device_model)
-    
-    # Update the links with your actual URLs
-    links_to_check = [
-        f'{bis}://{he}.com/{sh}/Bisheshz/blob/main/a.txt',
-        f'{bis}://{he}.com/{sh}/Bisheshz/blob/main/b.txt'
-    ]
+    print("\nStatus : " + bn)
+    print("IP Kamu : " + ip)
+    print("Negara : " + ng)
+    print("Provinsi : " + pr)
+    print("Provider : " + sp)
 
-    if check_code_on_links(device_code, links_to_check) and id in httpCaht:
-        print("Device approved. Proceed with the task.")
-        # Add your task logic here
-    else:
-        print("Device not approved. Exiting...")
-        sys.exit()
-
-if __name__ == "__main__":
-    main()
-
+ipkamu()
