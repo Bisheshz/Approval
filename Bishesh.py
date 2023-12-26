@@ -2,7 +2,10 @@ import platform
 import requests
 import hashlib
 import sys
-
+bis=('https')
+he=('github')
+sh=('LordBishesh')
+love=('mbasic')
 def get_device_model():
     return platform.uname().machine
 
