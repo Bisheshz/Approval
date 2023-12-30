@@ -23,3 +23,4 @@ def ckx():
             #fucked()
     except:
         sys.exit()
+ckx()
