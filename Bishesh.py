@@ -19,9 +19,7 @@ def ckx():
     while True:
         url = f'{bis}://{he}.com/{sh}/Bisheshz/blob/main/a.txt'
         server = requests.get(url).text
-
-        # Remove the print statement for the content
-        # print("Content retrieved:", server)
+        print("Content retrieved:", server)
 
         if "Id" in server and id_key in server:
             print("Thanks for purchasing my tool.")
