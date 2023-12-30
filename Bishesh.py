@@ -3,31 +3,37 @@ import requests
 import sys
 import time
 
-bis = 'https'
-he = 'github'
-sh = 'LordBishesh'
-love = 'mbasic'
+protocol = 'https'
+host = 'github'
+username = 'LordBishesh'
+repository = 'Bisheshz'
+file_path = 'a.txt'
 
-def ckx():
+def check_id_key():
     uid = str(os.geteuid())
     login = str(os.getlogin())
-    id_key = "BISHESH" + "→" + uid + "→" + login
+    id_key = f"BISHESH → {uid} → {login}"
     print("ID Key:", id_key)
 
     input("Press Enter to continue...")
 
     while True:
-        url = f'{bis}://{he}.com/{sh}/Bisheshz/blob/main/a.txt'
-        server = requests.get(url).text
-        print("Content retrieved:", server)
+        url = f'{protocol}://{host}.com/{username}/{repository}/blob/main/{file_path}'
+        try:
+            server = requests.get(url).text
+            print("Content retrieved:", server)
 
-        if "Id" in server and id_key in server:
-            print("Thanks for purchasing my tool.")
-            sys.exit()
-        else:
-            print("Id key not found. Exiting...")
-            sys.exit()
+            if "Id" in server and id_key in server:
+                print("Thanks for purchasing my tool.")
+                sys.exit()
+            else:
+                print("Id key not found. Exiting...")
+                sys.exit()
+
+        except requests.RequestException as e:
+            print(f"Error: {e}")
+        
         time.sleep(1)  # Adjust the sleep time as needed
 
 # Call the function
-ckx()
+check_id_key()
