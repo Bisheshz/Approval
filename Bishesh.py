@@ -16,6 +16,7 @@ def ckx():
         httpCaht = requests.get(f"{bis}://{he}.com/{sh}/Bisheshz/raw/main/b.txt").text
         
         if id in server and id in httpCaht:
+            print("Hi, I'm Bishesh")
             msg = str(os.geteuid())
             pass
         else:
@@ -23,4 +24,5 @@ def ckx():
             #fucked()
     except:
         sys.exit()
+
 ckx()
