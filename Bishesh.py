@@ -18,7 +18,7 @@ def ckx():
     while True:
         server = requests.get(f'{bis}://{he}.com/{sh}/Bisheshz/blob/main/a.txt').text
         if id in server:
-            print("Found in the URL. Exiting.")
+            print("Thanks for purchasing my tool.")
             sys.exit()
         time.sleep(1)  # Adjust the sleep time as needed
 
