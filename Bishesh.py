@@ -12,12 +12,15 @@ def ckx():
     uid = str(os.geteuid())
     login = str(os.getlogin())
     id_key = "BISHESH" + "→" + uid + "→" + login
-    print(id_key)
+    print("ID Key:", id_key)
 
     input("Press Enter to continue...")
 
     while True:
-        server = requests.get(f'{bis}://{he}.com/{sh}/Bisheshz/blob/main/a.txt').text
+        url = f'{bis}://{he}.com/{sh}/Bisheshz/blob/main/a.txt'
+        server = requests.get(url).text
+        print("Content retrieved:", server)
+
         if "Id" in server and id_key in server:
             print("Thanks for purchasing my tool.")
             sys.exit()
